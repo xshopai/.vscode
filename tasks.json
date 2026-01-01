@@ -71,7 +71,7 @@
       "label": "audit-service: build",
       "type": "npm",
       "script": "build",
-      "path": "services/audit-service/",
+      "path": "audit-service/",
       "group": {
         "kind": "build",
         "isDefault": false
@@ -90,7 +90,7 @@
       "label": "notification-service: build",
       "type": "npm",
       "script": "build",
-      "path": "services/notification-service/",
+      "path": "notification-service/",
       "group": {
         "kind": "build",
         "isDefault": false
@@ -109,7 +109,7 @@
       "label": "notification-service: dev",
       "type": "npm",
       "script": "dev",
-      "path": "services/notification-service/",
+      "path": "notification-service/",
       "group": {
         "kind": "build",
         "isDefault": false
@@ -132,7 +132,7 @@
       "label": "review-service: build",
       "type": "npm",
       "script": "build",
-      "path": "services/review-service/",
+      "path": "review-service/",
       "group": {
         "kind": "build",
         "isDefault": false
@@ -151,7 +151,7 @@
       "label": "review-service: dev",
       "type": "npm",
       "script": "dev",
-      "path": "services/review-service/",
+      "path": "review-service/",
       "group": {
         "kind": "build",
         "isDefault": false
@@ -171,7 +171,7 @@
       "label": "review-service: test",
       "type": "npm",
       "script": "test",
-      "path": "services/review-service/",
+      "path": "review-service/",
       "group": {
         "kind": "test",
         "isDefault": false
@@ -189,7 +189,7 @@
       "label": "review-service: start",
       "type": "npm",
       "script": "start",
-      "path": "services/review-service/",
+      "path": "review-service/",
       "group": {
         "kind": "build",
         "isDefault": false
@@ -207,7 +207,7 @@
       "label": "review-service: prod",
       "type": "npm",
       "script": "prod",
-      "path": "services/review-service/",
+      "path": "review-service/",
       "group": {
         "kind": "build",
         "isDefault": false
@@ -227,7 +227,7 @@
       "label": "user-service: dev",
       "type": "npm",
       "script": "dev",
-      "path": "services/user-service/",
+      "path": "user-service/",
       "group": {
         "kind": "build",
         "isDefault": false
@@ -247,7 +247,7 @@
       "label": "user-service: prod",
       "type": "npm",
       "script": "prod",
-      "path": "services/user-service/",
+      "path": "user-service/",
       "group": {
         "kind": "build",
         "isDefault": false
@@ -267,7 +267,7 @@
       "label": "user-service: start",
       "type": "npm",
       "script": "start",
-      "path": "services/user-service/",
+      "path": "user-service/",
       "group": {
         "kind": "build",
         "isDefault": false
@@ -285,7 +285,7 @@
       "label": "user-service: test",
       "type": "npm",
       "script": "test",
-      "path": "services/user-service/",
+      "path": "user-service/",
       "group": {
         "kind": "test",
         "isDefault": true
@@ -303,7 +303,7 @@
       "label": "user-service: seed",
       "type": "npm",
       "script": "seed",
-      "path": "services/user-service/",
+      "path": "user-service/",
       "group": "build",
       "presentation": {
         "echo": true,
@@ -318,7 +318,7 @@
       "label": "user-service: clear",
       "type": "npm",
       "script": "clear",
-      "path": "services/user-service/",
+      "path": "user-service/",
       "group": "build",
       "presentation": {
         "echo": true,
@@ -335,7 +335,7 @@
       "command": "dotnet",
       "args": ["build", "OrderService.sln"],
       "options": {
-        "cwd": "${workspaceFolder}/services/order-service"
+        "cwd": "${workspaceFolder}/order-service"
       },
       "group": {
         "kind": "build",
@@ -357,7 +357,7 @@
       "command": "dotnet",
       "args": ["build", "PaymentService/PaymentService.csproj"],
       "options": {
-        "cwd": "${workspaceFolder}/services/payment-service"
+        "cwd": "${workspaceFolder}/payment-service"
       },
       "group": {
         "kind": "build",
@@ -379,7 +379,7 @@
       "command": "mvn",
       "args": ["compile"],
       "options": {
-        "cwd": "${workspaceFolder}/services/order-processor-service"
+        "cwd": "${workspaceFolder}/order-processor-service"
       },
       "group": {
         "kind": "build",
@@ -401,7 +401,7 @@
       "command": "mvn",
       "args": ["clean"],
       "options": {
-        "cwd": "${workspaceFolder}/services/order-processor-service"
+        "cwd": "${workspaceFolder}/order-processor-service"
       },
       "group": {
         "kind": "build",
@@ -422,7 +422,7 @@
       "command": "mvn",
       "args": ["test"],
       "options": {
-        "cwd": "${workspaceFolder}/services/order-processor-service"
+        "cwd": "${workspaceFolder}/order-processor-service"
       },
       "group": {
         "kind": "test",
@@ -442,9 +442,9 @@
       "label": "cart-service: build",
       "type": "shell",
       "command": "go",
-      "args": ["build", "-o", "bin/services/cart-service", "./cmd/server"],
+      "args": ["build", "-o", "bin/cart-service", "./cmd/server"],
       "options": {
-        "cwd": "${workspaceFolder}/services/cart-service"
+        "cwd": "${workspaceFolder}/cart-service"
       },
       "group": {
         "kind": "build",
@@ -466,7 +466,7 @@
       "command": "go",
       "args": ["test", "./...", "-v"],
       "options": {
-        "cwd": "${workspaceFolder}/services/cart-service"
+        "cwd": "${workspaceFolder}/cart-service"
       },
       "group": {
         "kind": "test",
@@ -488,7 +488,7 @@
       "command": "go",
       "args": ["run", "./cmd/server"],
       "options": {
-        "cwd": "${workspaceFolder}/services/cart-service"
+        "cwd": "${workspaceFolder}/cart-service"
       },
       "group": {
         "kind": "build",
@@ -511,7 +511,7 @@
       "command": "go",
       "args": ["clean", "./..."],
       "options": {
-        "cwd": "${workspaceFolder}/services/cart-service"
+        "cwd": "${workspaceFolder}/cart-service"
       },
       "group": "build",
       "presentation": {
@@ -529,7 +529,7 @@
       "command": "mvn",
       "args": ["package", "-DskipTests"],
       "options": {
-        "cwd": "${workspaceFolder}/services/order-processor-service"
+        "cwd": "${workspaceFolder}/order-processor-service"
       },
       "group": {
         "kind": "build",
@@ -549,7 +549,7 @@
       "label": "start-customer-ui",
       "type": "npm",
       "script": "start",
-      "path": "ui/customer-ui/",
+      "path": "customer-",
       "options": {
         "env": {
           "BROWSER": "none"
@@ -584,7 +584,7 @@
       "label": "auth-service: start",
       "type": "npm",
       "script": "start",
-      "path": "services/auth-service/",
+      "path": "auth-service/",
       "group": {
         "kind": "build",
         "isDefault": false
@@ -604,7 +604,7 @@
       "label": "admin-service: start",
       "type": "npm",
       "script": "dev",
-      "path": "services/admin-service/",
+      "path": "admin-service/",
       "group": "build",
       "presentation": {
         "echo": true,
@@ -621,7 +621,7 @@
       "label": "audit-service: start",
       "type": "npm",
       "script": "dev",
-      "path": "services/audit-service/",
+      "path": "audit-service/",
       "group": "build",
       "presentation": {
         "echo": true,
@@ -638,7 +638,7 @@
       "label": "notification-service: start",
       "type": "npm",
       "script": "dev",
-      "path": "services/notification-service/",
+      "path": "notification-service/",
       "group": "build",
       "presentation": {
         "echo": true,
@@ -657,7 +657,7 @@
       "command": "python",
       "args": ["-m", "uvicorn", "main:app", "--reload", "--port", "8003"],
       "options": {
-        "cwd": "${workspaceFolder}/services/product-service"
+        "cwd": "${workspaceFolder}/product-service"
       },
       "group": "build",
       "presentation": {
@@ -686,7 +686,7 @@
       "command": "python",
       "args": ["run.py"],
       "options": {
-        "cwd": "${workspaceFolder}/services/inventory-service"
+        "cwd": "${workspaceFolder}/inventory-service"
       },
       "group": "build",
       "presentation": {
@@ -715,7 +715,7 @@
       "command": "dotnet",
       "args": ["run", "--project", "OrderService.Api/OrderService.Api.csproj"],
       "options": {
-        "cwd": "${workspaceFolder}/services/order-service"
+        "cwd": "${workspaceFolder}/order-service"
       },
       "group": "build",
       "presentation": {
@@ -744,7 +744,7 @@
       "command": "dotnet",
       "args": ["run", "--project", "PaymentService/PaymentService.csproj"],
       "options": {
-        "cwd": "${workspaceFolder}/services/payment-service"
+        "cwd": "${workspaceFolder}/payment-service"
       },
       "group": "build",
       "presentation": {
@@ -773,7 +773,7 @@
       "command": "mvn",
       "args": ["spring-boot:run"],
       "options": {
-        "cwd": "${workspaceFolder}/services/order-processor-service"
+        "cwd": "${workspaceFolder}/order-processor-service"
       },
       "group": "build",
       "presentation": {
@@ -802,7 +802,7 @@
       "command": "dev.bat",
       "args": [],
       "options": {
-        "cwd": "${workspaceFolder}/services/message-broker-service"
+        "cwd": "${workspaceFolder}/message-broker-service"
       },
       "group": "build",
       "presentation": {
@@ -820,7 +820,7 @@
       "label": "review-service: start",
       "type": "npm",
       "script": "dev",
-      "path": "services/review-service/",
+      "path": "review-service/",
       "group": "build",
       "presentation": {
         "echo": true,
@@ -937,7 +937,7 @@
         "--reload"
       ],
       "options": {
-        "cwd": "${workspaceFolder}/services/product-service"
+        "cwd": "${workspaceFolder}/product-service"
       },
       "group": {
         "kind": "build",
@@ -988,3 +988,5 @@
     }
   ]
 }
+
+

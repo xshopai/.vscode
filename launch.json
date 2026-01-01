@@ -6,6 +6,273 @@
       "request": "launch",
       "name": "Debug Auth Service",
       "runtimeExecutable": "nodemon",
+      "program": "${workspaceFolder}/auth-service/src/server.js",
+      "envFile": "${workspaceFolder}/auth-service/.env",
+      "env": { "NODE_ENV": "development" },
+      "restart": true,
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug User Service",
+      "runtimeExecutable": "dapr",
+      "runtimeArgs": [
+        "run",
+        "--app-id", "user-service",
+        "--app-port", "1002",
+        "--dapr-http-port", "3502",
+        "--dapr-grpc-port", "50002",
+        "--components-path", "${workspaceFolder}/user-service/.dapr/components",
+        "--config", "${workspaceFolder}/user-service/.dapr/config.yaml",
+        "--",
+        "node",
+        "--inspect",
+        "src/server.js"
+      ],
+      "cwd": "${workspaceFolder}/user-service",
+      "envFile": "${workspaceFolder}/user-service/.env",
+      "env": { 
+        "NODE_ENV": "development",
+        "DAPR_HTTP_PORT": "3502",
+        "DAPR_GRPC_PORT": "50002"
+      },
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Admin Service",
+      "runtimeExecutable": "nodemon",
+      "program": "${workspaceFolder}/admin-service/src/api/server.js",
+      "envFile": "${workspaceFolder}/admin-service/.env",
+      "env": { "NODE_ENV": "development" },
+      "restart": true,
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Audit Service",
+      "runtimeExecutable": "nodemon",
+      "program": "${workspaceFolder}/audit-service/src/consumer/server.ts",
+      "cwd": "${workspaceFolder}/audit-service",
+      "envFile": "${workspaceFolder}/audit-service/.env",
+      "env": { "NODE_ENV": "development" },
+      "runtimeArgs": ["--exec", "tsx"],
+      "restart": true,
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Notification Service",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "${workspaceFolder}/notification-service",
+      "envFile": "${workspaceFolder}/notification-service/.env",
+      "env": { "NODE_ENV": "development" },
+      "restart": true,
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Review Service",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "${workspaceFolder}/review-service",
+      "envFile": "${workspaceFolder}/review-service/.env",
+      "env": { "NODE_ENV": "development" },
+      "restart": true,
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Web BFF",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "${workspaceFolder}/web-bff",
+      "envFile": "${workspaceFolder}/web-bff/.env",
+      "env": { "NODE_ENV": "development" },
+      "restart": true,
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "debugpy",
+      "request": "launch",
+      "name": "Debug Product Service",
+      "module": "uvicorn",
+      "args": ["src.main:app", "--reload", "--host", "0.0.0.0", "--port", "8003"],
+      "cwd": "${workspaceFolder}/product-service",
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Debug Order Processor Service",
+      "mainClass": "com.aioutlet.orderprocessor.OrderProcessorApplication",
+      "projectName": "order-processor-service",
+      "cwd": "${workspaceFolder}/order-processor-service",
+      "env": {
+        "SPRING_PROFILES_ACTIVE": "local"
+      },
+      "envFile": "${workspaceFolder}/order-processor-service/.env",
+      "args": [],
+      "console": "integratedTerminal",
+      "vmArgs": [
+        "-Dspring.profiles.active=local",
+        "-Dspring.devtools.restart.enabled=true",
+        "-Dspring.devtools.livereload.enabled=true"
+      ],
+      "classPaths": ["${workspaceFolder}/order-processor-service/target/classes"],
+      "modulePaths": []
+    },
+    {
+      "type": "debugpy",
+      "request": "launch",
+      "name": "Debug Inventory Service",
+      "module": "flask",
+      "args": ["run", "--reload", "--host", "0.0.0.0", "--port", "5003"],
+      "cwd": "${workspaceFolder}/inventory-service",
+      "env": {
+        "PYTHONUNBUFFERED": "1",
+        "FLASK_APP": "run.py",
+        "FLASK_ENV": "development"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "type": "coreclr",
+      "request": "launch",
+      "name": "Debug Order Service (API)",
+      "program": "dotnet",
+      "args": ["watch", "run", "--project", "OrderService.Api/OrderService.Api.csproj"],
+      "cwd": "${workspaceFolder}/order-service",
+      "env": { "ASPNETCORE_ENVIRONMENT": "Local", "ASPNETCORE_URLS": "http://localhost:5001" },
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "type": "coreclr",
+      "request": "launch",
+      "name": "Debug Payment Service",
+      "program": "dotnet",
+      "args": ["watch", "run", "--project", "PaymentService/PaymentService.csproj"],
+      "cwd": "${workspaceFolder}/payment-service",
+      "env": { "ASPNETCORE_ENVIRONMENT": "Local", "ASPNETCORE_URLS": "http://localhost:5002" },
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "type": "go",
+      "request": "launch",
+      "name": "Debug Cart Service",
+      "mode": "auto",
+      "program": "${workspaceFolder}/cart-service/cmd/server",
+      "cwd": "${workspaceFolder}/cart-service",
+      "envFile": "${workspaceFolder}/cart-service/.env",
+      "env": { "ENVIRONMENT": "development", "SERVER_PORT": "8085" },
+      "console": "integratedTerminal",
+      "buildFlags": "-tags=dev"
+    },
+    {
+      "type": "go",
+      "request": "launch",
+      "name": "Debug Message Broker Service",
+      "mode": "auto",
+      "program": "${workspaceFolder}/message-broker-service/cmd/server",
+      "cwd": "${workspaceFolder}/message-broker-service",
+      "envFile": "${workspaceFolder}/message-broker-service/.env",
+      "console": "integratedTerminal"
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Debug Customer UI (Chrome)",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/customer-ui/src",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:///src/*": "${webRoot}/*",
+        "webpack:///./*": "${webRoot}/*",
+        "webpack:///./~/*": "${webRoot}/node_modules/*"
+      },
+      "preLaunchTask": "start-customer-ui"
+    },
+    {
+      "type": "msedge",
+      "request": "launch",
+      "name": "Debug Customer UI (Edge)",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/customer-ui/src",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:///src/*": "${webRoot}/*",
+        "webpack:///./*": "${webRoot}/*",
+        "webpack:///./~/*": "${webRoot}/node_modules/*"
+      },
+      "preLaunchTask": "start-customer-ui"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run E2E Tests",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["test"],
+      "cwd": "${workspaceFolder}/tests",
+      "env": { "NODE_ENV": "test" },
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Product Service: Direct (No Dapr)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["main:app", "--host", "0.0.0.0", "--port", "1001", "--reload"],
+      "cwd": "${workspaceFolder}/product-service",
+      "envFile": "${workspaceFolder}/product-service/.env",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "jinja": true
+    },
+    {
+      "name": "Product Service: Attach to Dapr Process",
+      "type": "debugpy",
+      "request": "attach",
+      "connect": {
+        "host": "localhost",
+        "port": 5678
+      },
+      "pathMappings": [
+        {
+          "localRoot": "${workspaceFolder}/product-service",
+          "remoteRoot": "."
+        }
+      ],
+      "justMyCode": false
+    }
+  ]
+}
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Auth Service",
+      "runtimeExecutable": "nodemon",
       "program": "${workspaceFolder}/services/auth-service/src/server.js",
       "envFile": "${workspaceFolder}/services/auth-service/.env",
       "env": { "NODE_ENV": "development" },

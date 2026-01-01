@@ -26,8 +26,9 @@
   "python-envs.pythonProjects": [],
   "python.defaultInterpreterPath": "C:\\Program Files\\Python313\\python.exe",
   "java.configuration.updateBuildConfiguration": "automatic",
-  "java.project.sourcePaths": ["services/order-processor-service/src/main/java"],
-  "java.project.outputPath": "services/order-processor-service/target/classes",
-  "java.project.referencedLibraries": ["services/order-processor-service/target/*.jar"],
+  "java.project.sourcePaths": ["order-processor-service/src/main/java"],
+  "java.project.outputPath": "order-processor-service/target/classes",
+  "java.project.referencedLibraries": ["order-processor-service/target/*.jar"],
   "java.debug.settings.hotCodeReplace": "auto"
 }
+
