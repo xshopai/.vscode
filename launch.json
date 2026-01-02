@@ -47,6 +47,7 @@
       "name": "Debug Admin Service",
       "runtimeExecutable": "nodemon",
       "program": "${workspaceFolder}/admin-service/src/api/server.js",
+      "cwd": "${workspaceFolder}/admin-service",
       "envFile": "${workspaceFolder}/admin-service/.env",
       "env": { "NODE_ENV": "development" },
       "restart": true,
