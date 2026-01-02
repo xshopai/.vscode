@@ -111,13 +111,12 @@
       "request": "launch",
       "name": "Debug Product Service",
       "module": "uvicorn",
-      "args": ["src.main:app", "--reload", "--host", "0.0.0.0", "--port", "8003"],
+      "args": ["main:app", "--reload", "--host", "0.0.0.0", "--port", "1001"],
       "cwd": "${workspaceFolder}/product-service",
-      "env": {
-        "PYTHONUNBUFFERED": "1"
-      },
+      "envFile": "${workspaceFolder}/product-service/.env",
       "console": "integratedTerminal",
-      "justMyCode": false
+      "justMyCode": false,
+      "preLaunchTask": "Start Dapr for Product Service"
     },
     {
       "type": "java",
@@ -237,34 +236,6 @@
       "env": { "NODE_ENV": "test" },
       "console": "integratedTerminal",
       "skipFiles": ["<node_internals>/**"]
-    },
-    {
-      "name": "Product Service: Direct (No Dapr)",
-      "type": "debugpy",
-      "request": "launch",
-      "module": "uvicorn",
-      "args": ["main:app", "--host", "0.0.0.0", "--port", "1001", "--reload"],
-      "cwd": "${workspaceFolder}/product-service",
-      "envFile": "${workspaceFolder}/product-service/.env",
-      "console": "integratedTerminal",
-      "justMyCode": false,
-      "jinja": true
-    },
-    {
-      "name": "Product Service: Attach to Dapr Process",
-      "type": "debugpy",
-      "request": "attach",
-      "connect": {
-        "host": "localhost",
-        "port": 5678
-      },
-      "pathMappings": [
-        {
-          "localRoot": "${workspaceFolder}/product-service",
-          "remoteRoot": "."
-        }
-      ],
-      "justMyCode": false
     }
   ]
 }
@@ -357,19 +328,6 @@
       "restart": true,
       "console": "integratedTerminal",
       "skipFiles": ["<node_internals>/**"]
-    },
-    {
-      "type": "debugpy",
-      "request": "launch",
-      "name": "Debug Product Service",
-      "module": "uvicorn",
-      "args": ["src.main:app", "--reload", "--host", "0.0.0.0", "--port", "8003"],
-      "cwd": "${workspaceFolder}/services/product-service",
-      "env": {
-        "PYTHONUNBUFFERED": "1"
-      },
-      "console": "integratedTerminal",
-      "justMyCode": false
     },
     {
       "type": "java",
@@ -489,34 +447,6 @@
       "env": { "NODE_ENV": "test" },
       "console": "integratedTerminal",
       "skipFiles": ["<node_internals>/**"]
-    },
-    {
-      "name": "Product Service: Direct (No Dapr)",
-      "type": "debugpy",
-      "request": "launch",
-      "module": "uvicorn",
-      "args": ["main:app", "--host", "0.0.0.0", "--port", "1001", "--reload"],
-      "cwd": "${workspaceFolder}/services/product-service",
-      "envFile": "${workspaceFolder}/services/product-service/.env",
-      "console": "integratedTerminal",
-      "justMyCode": false,
-      "jinja": true
-    },
-    {
-      "name": "Product Service: Attach to Dapr Process",
-      "type": "debugpy",
-      "request": "attach",
-      "connect": {
-        "host": "localhost",
-        "port": 5678
-      },
-      "pathMappings": [
-        {
-          "localRoot": "${workspaceFolder}/services/product-service",
-          "remoteRoot": "."
-        }
-      ],
-      "justMyCode": false
     }
   ]
 }

@@ -910,7 +910,7 @@
       "problemMatcher": []
     },
     {
-      "label": "product-service: start with dapr",
+      "label": "Start Dapr for Product Service",
       "type": "shell",
       "command": "dapr",
       "args": [
@@ -918,38 +918,20 @@
         "--app-id",
         "product-service",
         "--app-port",
-        "8003",
+        "1001",
         "--dapr-http-port",
         "3501",
         "--dapr-grpc-port",
         "50001",
-        "--components-path",
-        "./.dapr/components",
-        "--",
-        "python",
-        "-m",
-        "uvicorn",
-        "main:app",
-        "--host",
-        "0.0.0.0",
-        "--port",
-        "8003",
-        "--reload"
+        "--resources-path",
+        "${workspaceFolder}/product-service/.dapr/components",
+        "--config",
+        "${workspaceFolder}/product-service/.dapr/config.yaml",
+        "--log-level",
+        "warn"
       ],
       "options": {
         "cwd": "${workspaceFolder}/product-service"
-      },
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      },
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": true,
-        "panel": "new",
-        "showReuseMessage": true,
-        "clear": false
       },
       "isBackground": true,
       "problemMatcher": {
@@ -962,9 +944,15 @@
         },
         "background": {
           "activeOnStart": true,
-          "beginsPattern": "^.*starting Dapr Runtime.*$",
-          "endsPattern": "^.*dapr initialized.*$"
+          "beginsPattern": ".*Starting Dapr.*",
+          "endsPattern": ".*(You're up and running|Dapr initialized|dapr initialized).*"
         }
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "dedicated",
+        "showReuseMessage": false
       }
     },
     {
