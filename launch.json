@@ -116,13 +116,14 @@
       "envFile": "${workspaceFolder}/product-service/.env",
       "console": "integratedTerminal",
       "justMyCode": false,
-      "preLaunchTask": "Start Dapr for Product Service"
+      "preLaunchTask": "Start Dapr for Product Service",
+      "postDebugTask": "Stop Dapr for Product Service"
     },
     {
       "type": "java",
       "request": "launch",
       "name": "Debug Order Processor Service",
-      "mainClass": "com.aioutlet.orderprocessor.OrderProcessorApplication",
+      "mainClass": "com.xshopai.orderprocessor.OrderProcessorApplication",
       "projectName": "order-processor-service",
       "cwd": "${workspaceFolder}/order-processor-service",
       "env": {
@@ -333,7 +334,7 @@
       "type": "java",
       "request": "launch",
       "name": "Debug Order Processor Service",
-      "mainClass": "com.aioutlet.orderprocessor.OrderProcessorApplication",
+      "mainClass": "com.xshopai.orderprocessor.OrderProcessorApplication",
       "projectName": "order-processor-service",
       "cwd": "${workspaceFolder}/services/order-processor-service",
       "env": {

@@ -934,25 +934,42 @@
         "cwd": "${workspaceFolder}/product-service"
       },
       "isBackground": true,
-      "problemMatcher": {
-        "owner": "dapr",
-        "pattern": {
-          "regexp": "^(.*)$",
-          "file": 1,
-          "location": 2,
-          "message": 3
-        },
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": ".*Starting Dapr.*",
-          "endsPattern": ".*(You're up and running|Dapr initialized|dapr initialized).*"
+      "problemMatcher": [
+        {
+          "pattern": [
+            {
+              "regexp": ".",
+              "file": 1,
+              "location": 2,
+              "message": 3
+            }
+          ],
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "^Starting Dapr",
+            "endsPattern": "You're up and running"
+          }
         }
-      },
+      ],
       "presentation": {
         "echo": true,
         "reveal": "always",
         "panel": "dedicated",
         "showReuseMessage": false
+      }
+    },
+    {
+      "label": "Stop Dapr for Product Service",
+      "type": "shell",
+      "command": "dapr",
+      "args": ["stop", "--app-id", "product-service"],
+      "options": {
+        "cwd": "${workspaceFolder}/product-service"
+      },
+      "presentation": {
+        "echo": false,
+        "reveal": "silent",
+        "panel": "shared"
       }
     },
     {
