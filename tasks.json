@@ -441,8 +441,8 @@
     {
       "label": "cart-service: build",
       "type": "shell",
-      "command": "go",
-      "args": ["build", "-o", "bin/cart-service", "./cmd/server"],
+      "command": "mvn",
+      "args": ["clean", "compile"],
       "options": {
         "cwd": "${workspaceFolder}/cart-service"
       },
@@ -458,13 +458,13 @@
         "showReuseMessage": true,
         "clear": false
       },
-      "problemMatcher": "$go"
+      "problemMatcher": []
     },
     {
       "label": "cart-service: test",
       "type": "shell",
-      "command": "go",
-      "args": ["test", "./...", "-v"],
+      "command": "mvn",
+      "args": ["test"],
       "options": {
         "cwd": "${workspaceFolder}/cart-service"
       },
@@ -480,13 +480,13 @@
         "showReuseMessage": true,
         "clear": true
       },
-      "problemMatcher": "$go"
+      "problemMatcher": []
     },
     {
       "label": "cart-service: run",
       "type": "shell",
-      "command": "go",
-      "args": ["run", "./cmd/server"],
+      "command": "mvn",
+      "args": ["quarkus:dev"],
       "options": {
         "cwd": "${workspaceFolder}/cart-service"
       },
@@ -503,13 +503,22 @@
         "clear": false
       },
       "isBackground": true,
-      "problemMatcher": "$go"
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*Quarkus.*starting.*",
+          "endsPattern": ".*Quarkus.*started in.*"
+        }
+      }
     },
     {
       "label": "cart-service: clean",
       "type": "shell",
-      "command": "go",
-      "args": ["clean", "./..."],
+      "command": "mvn",
+      "args": ["clean"],
       "options": {
         "cwd": "${workspaceFolder}/cart-service"
       },
@@ -521,7 +530,8 @@
         "panel": "shared",
         "showReuseMessage": true,
         "clear": false
-      }
+      },
+      "problemMatcher": []
     },
     {
       "label": "order-processor-service: package",
@@ -797,26 +807,6 @@
       }
     },
     {
-      "label": "message-broker-service: start",
-      "type": "shell",
-      "command": "dev.bat",
-      "args": [],
-      "options": {
-        "cwd": "${workspaceFolder}/message-broker-service"
-      },
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "new",
-        "showReuseMessage": true,
-        "clear": false
-      },
-      "isBackground": true,
-      "problemMatcher": "$go"
-    },
-    {
       "label": "review-service: start",
       "type": "npm",
       "script": "dev",
@@ -839,8 +829,7 @@
         "product-service: start",
         "inventory-service: start",
         "order-processor-service: start",
-        "cart-service: run",
-        "message-broker-service: start"
+        "cart-service: run"
       ],
       "dependsOrder": "parallel",
       "group": "build",
@@ -862,8 +851,7 @@
         "order-service: start",
         "payment-service: start",
         "order-processor-service: start",
-        "cart-service: run",
-        "message-broker-service: start"
+        "cart-service: run"
       ],
       "dependsOrder": "parallel",
       "group": "build",
@@ -891,8 +879,7 @@
         "order-service: start",
         "payment-service: start",
         "order-processor-service: start",
-        "cart-service: run",
-        "message-broker-service: start"
+        "cart-service: run"
       ],
       "dependsOrder": "parallel",
       "group": {
